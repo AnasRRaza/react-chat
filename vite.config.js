@@ -8,6 +8,7 @@ export default defineConfig({
     // Forward API calls to the Express server, so the browser sees one origin (no CORS in dev).
     proxy: {
       '/api': 'http://localhost:3000',
+      '/socket.io': { target: 'http://localhost:3000', ws: true },
     },
   },
 })

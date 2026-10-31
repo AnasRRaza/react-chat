@@ -95,3 +95,92 @@ a { color: var(--accent); }
 }
 
 .footer { margin: 20px 0 0; font-size: 0.9rem; color: var(--muted); }
+
+/* --- chat --- */
+
+.chat {
+  width: 100%;
+  max-width: 720px;
+  height: min(80vh, 720px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.chat-header h1 { margin: 0; font-size: 1.15rem; }
+.chat-actions { display: flex; align-items: center; gap: 10px; }
+.muted { font-size: 0.8rem; color: var(--muted); }
+
+.status {
+  padding: 3px 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+.status-connected { color: #067647; border-color: #067647; }
+.status-connecting { color: #b54708; border-color: #b54708; }
+.status-disconnected { color: var(--danger); border-color: var(--danger); }
+
+@media (prefers-color-scheme: dark) {
+  .status-connected { color: #75e0a7; border-color: #75e0a7; }
+  .status-connecting { color: #fec84b; border-color: #fec84b; }
+}
+
+button.secondary {
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--border);
+}
+
+.messages {
+  flex: 1;
+  margin: 0;
+  padding: 16px 18px;
+  list-style: none;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.empty { margin: auto; color: var(--muted); }
+
+.message { display: flex; flex-direction: column; align-items: flex-start; max-width: 80%; }
+.message.mine { align-self: flex-end; align-items: flex-end; }
+
+.meta { margin-bottom: 3px; font-size: 0.75rem; color: var(--muted); }
+
+.bubble {
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.message.mine .bubble {
+  color: var(--accent-text);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.composer { padding: 12px 18px; border-top: 1px solid var(--border); display: grid; gap: 8px; }
+.composer-row { display: flex; gap: 8px; }
+.composer-row input { flex: 1; }
+.composer .error { margin: 0; }
